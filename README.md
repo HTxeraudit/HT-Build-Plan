@@ -2,10 +2,10 @@
 
 **Completely free · Non-profit · مجاني بالكامل · غير هادف للربح**
 
-HT Build-Plan reads the AutoCAD or Revit drawings of a residential building and gives the BOQ, the cost, the materials,
+HT Build-Plan reads the drawings of a residential building as DXF files (from AutoCAD, or exported from Revit) and gives the BOQ, the cost, the materials,
 the feasibility study and the programme (an XER file for Primavera P6).
 
-برنامج يقرأ رسومات العمارة السكنية (AutoCAD أو Revit) ويُخرج المقايسة والتكلفة والخامات ودراسة الجدوى والبرنامج الزمني
+برنامج يقرأ رسومات العمارة السكنية بصيغة DXF (من AutoCAD، أو المصدَّرة من Revit) ويُخرج المقايسة والتكلفة والخامات ودراسة الجدوى والبرنامج الزمني
 في ملف XER لبرنامج Primavera P6.
 
 - Website · الموقع: https://htxeraudit.github.io/HT-XER-Audit/#build-plan
