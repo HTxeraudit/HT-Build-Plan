@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HT Build-Plan</title>
+<meta name="description" content="برنامج مجاني بالكامل يقرأ رسومات العمارة السكنية (DXF) أو موديل BIM (IFC) ويُخرج الحصر والتكلفة ودراسة الجدوى والبرنامج الزمني. A free program that reads residential building drawings (DXF) or a BIM model (IFC) and gives the quantities, cost, feasibility and programme.">
+<meta property="og:title" content="HT Build-Plan">
+<meta property="og:description" content="إدارة هندسية متكاملة للمشروعات السكنية: الحصر والتكلفة والجدوى والبرنامج الزمني من لوحات DXF أو موديل IFC. مجاني بالكامل.">
+<meta property="og:image" content="assets/bp_poster.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23070d24'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='36' font-weight='800' font-style='italic' text-anchor='middle' fill='%23f0bf52'%3EHT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#070d24;--navy2:#0d1740;--navy3:#14225c;--line:rgba(150,185,255,.2);--gold:#f0bf52;--gold2:#c98d22;--ink:#eef3ff;--ink2:#b4c1e2;--green:#21d07a;--gutter:16px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--ink);font:500 17px/1.75 Cairo,"Segoe UI",Tahoma,sans-serif;-webkit-text-size-adjust:100%}
+[lang=en] body,body.en{font-family:"Segoe UI",Bahnschrift,Tahoma,sans-serif}
+a{color:var(--gold)}
+img,video,iframe{display:block;max-width:100%}
+.wrap{width:min(1120px,100%);margin:auto;padding-inline:var(--gutter)}
+header.top{display:flex;align-items:center;justify-content:space-between;padding-block:18px}
+.brand{display:inline-flex;flex-direction:column;align-items:flex-start;text-decoration:none}
+.by{font:600 clamp(14px,1.5vw,17px)/1.2 Bahnschrift,"Segoe UI",sans-serif;color:var(--gold);letter-spacing:.02em;margin-top:5px}
+.logo{display:inline-flex;align-items:baseline;gap:.3em;font:600 clamp(28px,3.4vw,38px)/1.1 Bahnschrift,"Segoe UI",sans-serif;color:#fff}
+.logo b{font-weight:800;font-style:italic;font-size:1.34em;color:var(--gold)}
+.lang{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 14px;font:inherit;font-size:15px;cursor:pointer;min-height:40px}
+.lang:hover{border-color:var(--gold)}
+.hero{background:radial-gradient(900px 480px at 50% -10%,#1b3187 0,transparent 70%);text-align:center;padding-block:34px 56px}
+.free{display:inline-block;color:var(--green);border:1px solid rgba(33,208,122,.55);border-radius:999px;padding:2px 16px;font-weight:700;font-size:16px;margin-bottom:14px}
+h1{font-weight:900;font-size:clamp(30px,5.4vw,54px);line-height:1.25;margin:0 0 14px;text-wrap:balance}
+.lead{color:var(--ink2);font-size:clamp(17px,2.2vw,20px);max-width:760px;margin:0 auto 26px;text-wrap:pretty}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:8px 26px;border-radius:10px;font-weight:700;text-decoration:none;transition:transform .12s,background .12s}
+.btn.pri{background:linear-gradient(180deg,#f8d57e,var(--gold) 45%,var(--gold2));color:#1a1300;font-weight:900}
+.btn.pri:hover{transform:translateY(-1px)}
+.btn.sec{border:1px solid var(--line);color:var(--ink)}
+.btn.sec:hover{border-color:var(--gold)}
+.note{color:var(--ink2);font-size:14.5px;margin-top:12px}
+.video{margin:38px auto 0;max-width:940px;aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(0,0,0,.6);background:#000}
+.video video,.video iframe{width:100%;height:100%;border:0}
+section{padding-block:52px;border-top:1px solid var(--line)}
+h2{font-weight:900;font-size:clamp(25px,3.6vw,34px);line-height:1.3;margin:0 0 8px}
+.sub{color:var(--ink2);margin:0 0 28px;max-width:760px}
+.feature{display:grid;grid-template-columns:1fr 1.25fr;gap:32px;align-items:center;padding-block:24px}
+.feature h3{font-size:23px;font-weight:900;color:var(--gold);margin:0 0 6px;line-height:1.35}
+.feature p{margin:0 0 10px;color:var(--ink2)}
+.feature ul{margin:0;padding-inline-start:20px;color:var(--ink)}
+.feature li{margin-block:3px}
+.shot{border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line),0 18px 50px rgba(0,0,0,.5);background:var(--navy2)}
+.shot img{width:100%;height:auto}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:s}
+.steps li{counter-increment:s;min-width:0}
+.steps li::before{content:counter(s);display:block;font:800 40px Bahnschrift,"Segoe UI",sans-serif;color:var(--gold);line-height:1.2}
+.steps b{display:block;font-size:19px;margin-bottom:4px}
+.steps span{color:var(--ink2)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.facts b{display:block;font-size:19px;color:var(--ink);margin-bottom:2px}
+.facts span{color:var(--ink2)}
+.contact{display:flex;flex-wrap:wrap;gap:12px}
+footer{border-top:1px solid var(--line);padding-block:24px;color:var(--ink2);font-size:14px}
+bdi{unicode-bidi:isolate;white-space:nowrap}
+/* 15-Nov-26 two programs on one page: the switch under the header */
+.apps{display:flex;justify-content:center;gap:10px;padding-block:6px 4px;flex-wrap:wrap}
+.app{display:inline-flex;flex-direction:column;align-items:center;min-width:220px;min-height:58px;justify-content:center;padding:8px 22px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);font:inherit;cursor:pointer;text-decoration:none}
+.app b{font:700 19px/1.2 Bahnschrift,"Segoe UI",sans-serif;direction:ltr}
+.app small{color:var(--ink2);font-size:13.5px;line-height:1.4}
+.app:hover{border-color:var(--gold)}
+.app[aria-selected=true]{background:linear-gradient(180deg,rgba(240,191,82,.16),rgba(240,191,82,.05));border-color:var(--gold);box-shadow:0 0 0 1px rgba(240,191,82,.35)}
+.app[aria-selected=true] b{color:var(--gold)}
+.heroshot{margin:38px auto 0;max-width:940px}
+[hidden]{display:none!important}
+/* the start page: the two programs as two big buttons */
+.pcards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:34px;text-align:start}
+.pcard{display:flex;flex-direction:column;border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink);background:rgba(255,255,255,.035);box-shadow:0 0 0 1px var(--line),0 24px 60px rgba(0,0,0,.45);transition:transform .15s,box-shadow .15s}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 0 0 2px var(--gold),0 30px 70px rgba(0,0,0,.55)}
+.pcard img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line)}
+.pcard .pc{padding:22px 26px 26px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pcard b{font:800 30px/1.2 Bahnschrift,"Segoe UI",sans-serif;direction:ltr;text-align:start}
+.pcard b i{color:var(--gold)}
+.pcard .pd{color:var(--ink2);font-size:17px;flex:1}
+.pcard .go{align-self:stretch;margin-top:14px;min-height:56px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-weight:900;font-size:19px;background:linear-gradient(180deg,#f8d57e,var(--gold) 45%,var(--gold2));color:#1a1300}
+@media (max-width:820px){.pcards{grid-template-columns:1fr;gap:20px}}
+@media (max-width:820px){.app{min-width:0;flex:1 1 45%}}
+@media (max-width:820px){.feature{grid-template-columns:1fr;gap:16px}.feature .shot{order:2}.steps,.facts{grid-template-columns:1fr;gap:20px}section{padding-block:40px}.btn{width:100%}.contact .btn{width:auto;flex:1 1 auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap"><header class="top" dir="ltr">
+  <a class="brand" href="#" aria-label="HT Build-Plan, Engr Hassan Taha"><span class="logo"><b>HT</b><span id="logoName">Build-Plan</span></span><span class="by">Engr Hassan Taha</span></a>
+  <button class="lang" id="lang" type="button">English</button>
+</header></div>
+<main>
+<!-- HT Build-Plan (15-Nov-26) -->
+<div id="p-bp">
+<div class="hero"><div class="wrap">
+  <span class="free" data-t="free"></span>
+  <h1 data-t="b_h1"></h1>
+  <p class="lead" data-t="b_lead"></p>
+  <div class="cta">
+    <a class="btn pri" id="bdl" href="#bstart"><span data-t="dl"></span></a>
+    <a class="btn sec" href="#bstart" data-t="how"></a>
+  </div>
+  <p class="note" data-t="b_dlnote"></p>
+  <div class="video"><video controls preload="none" poster="assets/bp_poster.jpg" src="assets/HT-Build-Plan-Promo.mp4"></video></div>
+</div></div>
+
+<section><div class="wrap">
+  <h2 data-t="b_fh"></h2>
+  <p class="sub" data-t="b_fs"></p>
+  <div class="feature">
+    <div><h3 data-t="b_rd_h"></h3><p data-t="b_rd_p"></p><ul><li data-t="b_rd_1"></li><li data-t="b_rd_2"></li><li data-t="b_rd_3"></li></ul></div>
+    <div class="shot"><img src="assets/bp_read.jpg" width="1400" height="788" loading="lazy" data-alt="b_rd_h" alt=""></div>
+  </div>
+  <div class="feature">
+    <div><h3 data-t="b_q_h"></h3><p data-t="b_q_p"></p><ul><li data-t="b_q_1"></li><li data-t="b_q_2"></li></ul></div>
+    <div class="shot"><img src="assets/bp_ask.jpg" width="1400" height="788" loading="lazy" data-alt="b_q_h" alt=""></div>
+  </div>
+  <div class="feature">
+    <div><h3 data-t="b_res_h"></h3><p data-t="b_res_p"></p><ul><li data-t="b_res_1"></li><li data-t="b_res_2"></li><li data-t="b_res_3"></li></ul></div>
+    <div class="shot"><img src="assets/bp_result.jpg" width="1400" height="788" loading="lazy" data-alt="b_res_h" alt=""></div>
+  </div>
+  <div class="feature">
+    <div><h3 data-t="b_rep_h"></h3><p data-t="b_rep_p"></p><ul><li data-t="b_rep_1"></li><li data-t="b_rep_2"></li><li data-t="b_rep_3"></li></ul></div>
+    <div class="shot"><img src="assets/bp_report.jpg" width="1400" height="788" loading="lazy" data-alt="b_rep_h" alt=""></div>
+  </div>
+  <div class="feature">
+    <div><h3 data-t="b_acc_h"></h3><p data-t="b_acc_p"></p><ul><li data-t="b_acc_1"></li><li data-t="b_acc_2"></li></ul></div>
+    <div class="shot"><img src="assets/bp_accounts.jpg" width="1400" height="788" loading="lazy" data-alt="b_acc_h" alt=""></div>
+  </div>
+  <p class="note" data-t="b_samples"></p>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-t="t_h"></h2>
+  <p class="sub" data-t="b_t_s"></p>
+  <div class="facts">
+    <div><b data-t="b_t1b"></b><span data-t="b_t1"></span></div>
+    <div><b data-t="t2b"></b><span data-t="t2"></span></div>
+    <div><b data-t="b_t3b"></b><span data-t="b_t3"></span></div>
+  </div>
+</div></section>
+
+<section id="bstart"><div class="wrap">
+  <h2 data-t="s_h"></h2>
+  <p class="sub" data-t="s_s"></p>
+  <ol class="steps">
+    <li><b data-t="s1b"></b><span data-t="b_s1"></span></li>
+    <li><b data-t="s2b"></b><span data-t="b_s2"></span></li>
+    <li><b data-t="s3b"></b><span data-t="b_s3"></span></li>
+  </ol>
+  <div class="cta" style="margin-top:30px;justify-content:flex-start">
+    <a class="btn pri" id="bdl2" href="#bstart"><span data-t="dl"></span></a>
+  </div>
+</div></section>
+</div>
+
+<section><div class="wrap">
+  <h2 data-t="k_h"></h2>
+  <p class="sub" data-t="k_s"></p>
+  <div class="contact" id="contact"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap" id="legal"></div></footer>
+
+<script>
+/* The only lines to edit. EMAIL empty = no e-mail button. YOUTUBE = the id after watch?v= (empty = the video file in assets). */
+const CONFIG = {EMAIL: 'htxeraudit@gmail.com', YOUTUBE: '', REPO: 'HTxeraudit/HT-Build-Plan'};
+
+const T = {
+ar: {
+ free:'مجاني بالكامل · غير هادف للربح', h1:'راجع برامج Primavera P6 الزمنية من ملف XER، دون فتح البريمافيرا',
+ lead:'يذهب مباشرة إلى المشكلات، ويبيّن سببها وأثرها وعلاجها بالعربية والإنجليزية، ويقارن التحديثات، ويكتب خطاب المقاول، ويُعدّ التحديث الدوري في ملف XER جديد.',
+ dl:'تحميل البرنامج لنظام Windows', how:'طريقة التشغيل', dlnote:'ملف مضغوط، نحو 17 ميجابايت. يعمل على Windows 10 أو 11، إصدار 64 بت.',
+ fh:'كل ما يلزم مهندس التخطيط في مكان واحد', fs:'للاستشاري والمقاول ومكاتب ضبط المشروعات: من ملف XER وحده إلى تقرير جاهز.',
+ a_h:'تحليل البرنامج الزمني', a_p:'تقرير كامل من ملف XER واحد، بدرجة جودة واضحة وملاحظات مرتبة حسب الأهمية.',
+ a_1:'برنامج الأساس، والمعدّل، والاستدراكي، والتحديث الدوري', a_2:'فحوص DCMA-14 ومعايير المراجعة', a_3:'القيمة المكتسبة، والعمالة، والتقدم، وعرض الجدول الزمني',
+ c_h:'مقارنة البرامج الزمنية', c_p:'يعرض ما تغيّر فقط: كل نشاط تغيّر، والقيمة القديمة بجانب الجديدة.',
+ c_1:'برنامجان، أو تحديث مع خط الأساس، أو ثلاثة برامج', c_2:'المسار الحرج، والـ Milestones، والأداء الفعلي', c_3:'عدة مشروعات في ملف واحد، تُقارن معًا',
+ r_h:'خطاب المقاول والتقارير', r_p:'خطاب جاهز بملخص المخالفات وأمثلتها، بالعربية أو الإنجليزية، وبشعار شركتكم.',
+ r_1:'الخطاب بصيغة PDF أو Word', r_2:'كل الصفحات إلى Excel أو PDF، بغلاف وفهرس',
+ u_h:'إجراء تحديث على برنامج زمني', u_p:'جديد: تُدخل تقدم الفترة في شاشة واحدة، ويكتب البرنامج ملف XER جديدًا تستورده في البريمافيرا.',
+ u_1:'الإدخال على الشاشة مباشرة، أو من قالب Excel', u_2:'الموارد تتبع النسبة تلقائيًا، وتبقى قابلة للتعديل', u_3:'الملف الأصلي كما هو، ثم Import في P6 والضغط على F9',
+ samples:'الصور من ملفات نموذجية عامة وبأسماء شركات افتراضية.',
+ t_h:'ملفاتكم تبقى عندكم', t_s:'يعمل البرنامج على جهازكم، ولا يرفع ملفات XER أو التقارير إلى أي مكان.',
+ t1b:'لا يمسّ الملف الأصلي', t1:'التحليل والمقارنة قراءة فقط، والتحديث يكتب ملفًا جديدًا منفصلًا.',
+ t2b:'دون إنترنت بعد التفعيل', t2:'الإنترنت مطلوب مرة واحدة لتفعيل البرنامج على الجهاز، ثم يعمل دونه.',
+ t3b:'دون فتح البريمافيرا', t3:'التحليل والمقارنة من ملف XER وحده. أما تطبيق التحديث فيحتاج إلى P6 لاستيراد الملف الجديد.',
+ s_h:'طريقة التشغيل', s_s:'ثلاث خطوات، مرة واحدة على كل جهاز.',
+ s1b:'التحميل وفك الضغط', s1:'حمّل الملف وفكّ ضغطه في مجلد على الجهاز، ولا تشغّل البرنامج من داخل الملف المضغوط.',
+ s2b:'التشغيل', s2:'شغّل HT XER-Audit.exe.‏ البرنامج غير موقّع رقميًا، لذا قد يظهر تحذير Windows: اختر More info ثم Run anyway.‏',
+ s3b:'التفعيل', s3:'أنشئ حسابًا وأكّد بريدك الإلكتروني. بعد الموافقة على طلبك يكتمل التفعيل، ويعمل البرنامج دون إنترنت. مدة الترخيص 6 أشهر، ويُجدَّد مجانًا عند الطلب.',
+ gar:'دليل المستخدم بالعربية', gen:'User Guide in English',
+ k_h:'تواصلوا معنا', k_s:'التحميل مباشر من هذه الصفحة. ولطلبات التفعيل والأسئلة والملاحظات، البريد الإلكتروني هو وسيلة التواصل الوحيدة.', mail:'البريد الإلكتروني', lang:'English',
+ legal:'<bdi>Primavera</bdi> و <bdi>P6</bdi> علامتان تجاريتان لشركة <bdi>Oracle</bdi>، و <bdi>HT XER-Audit</bdi> برنامج مستقل لا صلة له بها.',
+ app_xer:'مراجعة برامج Primavera P6', app_bp:'إدارة هندسية متكاملة للمشروعات السكنية',
+ home_h1:'برنامجان هندسيان مجانيان بالكامل', home_lead:'اختر البرنامج للدخول إلى صفحته: الشرح والصور والتحميل.',
+ home_xer:'يراجع برامج Primavera P6 الزمنية من ملف XER، ويقارن التحديثات، ويكتب خطاب المقاول، ويُعدّ التحديث الدوري.',
+ home_bp:'يقرأ رسومات العمارة السكنية بصيغة DXF أو موديل BIM بصيغة IFC، ويُخرج الحصر والتكلفة ودراسة الجدوى والبرنامج الزمني.',
+ home_go:'الدخول ←',
+ home_legal:'<bdi>Primavera</bdi> و <bdi>P6</bdi> علامتان تجاريتان لشركة <bdi>Oracle</bdi>، و <bdi>AutoCAD</bdi> و <bdi>Revit</bdi> علامتان تجاريتان لشركة <bdi>Autodesk</bdi>، و <bdi>ArchiCAD</bdi> لشركة <bdi>Graphisoft</bdi>، و <bdi>Tekla</bdi> لشركة <bdi>Trimble</bdi>، وبرامج <bdi>HT</bdi> مستقلة لا صلة لها بها.',
+ b_h1:'من رسومات العمارة إلى الحصر والتكلفة والبرنامج الزمني',
+ b_lead:'أضِف رسومات العمارة السكنية بصيغة DXF (من AutoCAD، أو المصدَّرة من Revit)، أو موديل BIM واحدًا بصيغة IFC (من Revit أو ArchiCAD أو Tekla)، فيقرؤها البرنامج كما يقرؤها المهندس: الأساسات والهيكل والمباني والتشطيبات، ثم يُخرج المقايسة والتكلفة والخامات ودراسة الجدوى والبرنامج الزمني في ملف XER لبرنامج Primavera P6.',
+ b_dlnote:'ملف مضغوط، نحو 182 ميجابايت. يعمل على Windows 10 أو 11، إصدار 64 بت.',
+ b_fh:'العمارة كلها في برنامج واحد', b_fs:'للمطوّر العقاري والمقاول ومكتب التصميم: من الرسومات إلى تقدير التكلفة وخطة التنفيذ وحسابات المشروع.',
+ b_rd_h:'قراءة الرسومات', b_rd_p:'يتعرّف على المساقط والقطاعات والواجهات وجداول الأعمدة والقواعد، بالعربية أو الإنجليزية، ويعرض ما قرأه لتراجعه قبل الحساب. ومن موديل IFC يقيس المناسيب والارتفاعات والقطاعات والفتحات والغرف على الموديل الثلاثي الأبعاد نفسه.',
+ b_rd_1:'ملفات DXF من AutoCAD أو Revit، أو موديل IFC واحد من Revit أو ArchiCAD أو Tekla', b_rd_2:'كل عنصر يعرف كيف يلتقي بما يجاوره، فلا يُحسب شيء مرتين', b_rd_3:'تنبيهات الرسم قبل الحساب',
+ b_q_h:'المعلومات الناقصة سؤالًا سؤالًا', b_q_p:'لا يخمّن البرنامج أي كمية: ما ليس في الرسم يسأل عنه سؤالًا واحدًا في كل مرة، ويُظهر موضعه على الرسم.',
+ b_q_1:'التسليح من التصميم (وفي موديل IFC من ملف Excel تملؤه)، والوصلات والجنشات حسب الكود المصري ECP 203 و ACI 318', b_q_2:'الإجابات محفوظة، وتعدّلها متى شئت',
+ b_res_h:'النتيجة على العمارة', b_res_p:'تكلفة كل دور على شكل العمارة نفسها، واضغط على أي دور لترى تفصيله.',
+ b_res_1:'التكلفة المباشرة، وسعر المتر، ومدة التنفيذ', b_res_2:'درجة الثقة في الحصر', b_res_3:'ملف Excel للكميات والأسعار، وملف XER لبرنامج Primavera P6',
+ b_rep_h:'التقرير ودراسة الجدوى', b_rep_p:'تقرير كامل في مجموعات: الملخص، والحصر والكميات، والتكلفة والتوريد، والبرنامج الزمني، والجدوى.',
+ b_rep_1:'المبيعات وصافي الربح وسعر التعادل', b_rep_2:'المعالم الرئيسية (Milestones) للمشروع', b_rep_3:'طباعة أو حفظ PDF',
+ b_acc_h:'حسابات المشروع', b_acc_p:'دفتر لكل مشروع: الخزينة والبنك، والموردون والمقاولون، والمشترون، والشركاء، بإيصالاتها.',
+ b_acc_1:'الفواتير الواردة ومتابعتها', b_acc_2:'تقارير الحسابات بصيغ Excel و HTML و PDF',
+ b_samples:'الصور من مشروع نموذجي ورسم تجريبي وبأسماء افتراضية.',
+ b_t_s:'يعمل البرنامج على جهازكم، ولا يرفع الرسومات أو المشروعات أو الحسابات إلى أي مكان.',
+ b_t1b:'الرسومات الأصلية كما هي', b_t1:'يقرأ البرنامج نسخة داخل مجلد المشروع، ولا يغيّر ملفاتكم.',
+ b_t3b:'أسعاركم أنتم', b_t3:'لكل مشروع قائمة أسعار خاصة به تعدّلونها حسب موقعه.',
+ b_s1:'حمّل الملف وفكّ ضغطه في مجلد على الجهاز، واترك المجلد libs بجوار البرنامج كما هو.',
+ b_s2:'شغّل HT Build-Plan.exe.‏ البرنامج غير موقّع رقميًا، لذا قد يظهر تحذير Windows: اختر More info ثم Run anyway.‏',
+ b_s3:'أنشئ حسابًا وأكّد بريدك الإلكتروني. بعد الموافقة على طلبك يصلك بريد بمدة الترخيص، ويكتمل التفعيل ويعمل البرنامج دون إنترنت. مدة الترخيص 6 أشهر، وتُجدَّد مجانًا عند الطلب.',
+ b_legal:'<bdi>AutoCAD</bdi> و <bdi>Revit</bdi> علامتان تجاريتان لشركة <bdi>Autodesk</bdi>، و <bdi>ArchiCAD</bdi> لشركة <bdi>Graphisoft</bdi>، و <bdi>Tekla</bdi> لشركة <bdi>Trimble</bdi>، و <bdi>Primavera</bdi> و <bdi>P6</bdi> علامتان تجاريتان لشركة <bdi>Oracle</bdi>، و <bdi>HT Build-Plan</bdi> برنامج مستقل لا صلة له بها.'
+},
+en: {
+ free:'Completely free · Non-profit', h1:'Review Primavera P6 schedules from the XER file, without opening P6',
+ lead:'It goes straight to the problems and explains their cause, impact and remedy in English and Arabic, compares updates, writes the contractor letter, and prepares the periodic update in a new XER file.',
+ dl:'Download for Windows', how:'How to run it', dlnote:'Zip file, about 17 MB. Windows 10 or 11 (64-bit).',
+ fh:'What a planning engineer needs, in one place', fs:'For consultants, contractors and project controls teams: from an XER file to a finished report.',
+ a_h:'Schedule analysis', a_p:'A full report from one XER file, with a clear quality score and notes ordered by importance.',
+ a_1:'Baseline, Revised, Recovery and periodic Update programmes', a_2:'DCMA-14 checks and review criteria', a_3:'Earned value, manpower, progress and a schedule viewer',
+ c_h:'Schedule comparison', c_p:'It shows only what changed: every changed activity, with the old value beside the new one.',
+ c_1:'Two programmes, an update with its baseline, or three programmes', c_2:'Critical path, Milestones and actual performance', c_3:'Several projects in one file, compared together',
+ r_h:'Contractor letter and reports', r_p:'A ready letter with the summary of findings and examples, in English or Arabic, with your company logo.',
+ r_1:'The letter as PDF or Word', r_2:'Every page to Excel or PDF, with a cover and contents',
+ u_h:'Apply an update to a programme', u_p:'New: enter the period’s progress on one screen, and the program writes a new XER file for you to import into P6.',
+ u_1:'Enter on the screen, or from an Excel template', u_2:'Resources follow the % automatically and stay editable', u_3:'The original file stays as it is; then Import in P6 and press F9',
+ samples:'Pictures are from public sample files, with invented company names.',
+ t_h:'Your files stay with you', t_s:'The program runs on your PC and uploads no XER files or reports anywhere.',
+ t1b:'The original is never touched', t1:'Analysis and comparison only read. The update writes a separate new file.',
+ t2b:'Offline after activation', t2:'Internet is needed once, to activate the program on the PC. After that it works without it.',
+ t3b:'No need to open P6', t3:'Analysis and comparison need only the XER file. Applying an update needs P6 to import the new file.',
+ s_h:'How to run it', s_s:'Three steps, once on each PC.',
+ s1b:'Download and extract', s1:'Download the file and extract it to a folder. Do not run the program from inside the zip.',
+ s2b:'Run', s2:'Run HT XER-Audit.exe. The program is not digitally signed, so Windows may warn you: choose More info, then Run anyway.',
+ s3b:'Activate', s3:'Create an account and confirm your e-mail. Once your request is approved, activation completes and the program works offline. The licence lasts 6 months and is renewed free on request.',
+ gar:'دليل المستخدم بالعربية', gen:'User Guide in English',
+ k_h:'Contact', k_s:'Download directly from this page. For activation requests, questions and feedback, e-mail is the only way to reach us.', mail:'E-mail', lang:'العربية',
+ legal:'Primavera and P6 are trademarks of Oracle. HT XER-Audit is an independent program, not connected with Oracle.',
+ app_xer:'Primavera P6 schedule review', app_bp:'Integrated engineering management of residential projects',
+ home_h1:'Two engineering programs, completely free', home_lead:'Choose a program to open its page: what it does, pictures and download.',
+ home_xer:'Reviews Primavera P6 schedules from the XER file, compares updates, writes the contractor letter and prepares the periodic update.',
+ home_bp:'Reads the DXF drawings or the IFC (BIM) model of a residential building and gives the quantities, the cost, the feasibility and the programme.',
+ home_go:'Open →',
+ home_legal:'Primavera and P6 are trademarks of Oracle; AutoCAD and Revit are trademarks of Autodesk; ArchiCAD of Graphisoft; Tekla of Trimble. The HT programs are independent and not connected with them.',
+ b_h1:'From the building drawings to the quantities, the cost and the programme',
+ b_lead:'Add the drawings of a residential building as DXF files (from AutoCAD, or exported from Revit), or one BIM model as an IFC file (from Revit, ArchiCAD or Tekla), and the program reads them as an engineer does: foundations, frame, masonry and finishes. Then it gives the BOQ, the cost, the materials, the feasibility study and the programme as an XER file for Primavera P6.',
+ b_dlnote:'Zip file, about 182 MB. Windows 10 or 11 (64-bit).',
+ b_fh:'The whole building in one program', b_fs:'For developers, contractors and design offices: from the drawings to the cost estimate, the execution plan and the project accounts.',
+ b_rd_h:'Reading the drawings', b_rd_p:'It finds the plans, sections, elevations and the column and footing schedules, in Arabic or English, and shows what it read for you to check before the calculation. From an IFC model it measures the levels, heights, sections, openings and rooms on the 3D model itself.',
+ b_rd_1:'DXF files from AutoCAD or Revit, or one IFC model from Revit, ArchiCAD or Tekla', b_rd_2:'Every element knows how it meets the next one, so nothing is counted twice', b_rd_3:'Drawing warnings before the calculation',
+ b_q_h:'Missing information, one question at a time', b_q_p:'The program never guesses a quantity: what the drawing does not say, it asks one question at a time and shows where on the drawing.',
+ b_q_1:'Reinforcement from the design (for an IFC model, from an Excel file you fill in); laps and hooks by ECP 203 and ACI 318', b_q_2:'Answers are saved and can be changed at any time',
+ b_res_h:'The result on the building', b_res_p:'The cost of every floor on the building itself; click a floor to see its breakdown.',
+ b_res_1:'Direct cost, cost per m² and duration', b_res_2:'A confidence score for the take-off', b_res_3:'An Excel file of quantities and prices, and an XER file for Primavera P6',
+ b_rep_h:'Report and feasibility', b_rep_p:'A full report in groups: summary, take-off and quantities, cost and procurement, programme and feasibility.',
+ b_rep_1:'Sales, net profit and break-even price', b_rep_2:'The project Milestones', b_rep_3:'Print or save as PDF',
+ b_acc_h:'Project accounts', b_acc_p:'A book for every project: cash and bank, suppliers and subcontractors, buyers and partners, with their receipts.',
+ b_acc_1:'Incoming invoices and their follow-up', b_acc_2:'Account reports as Excel, HTML and PDF',
+ b_samples:'Pictures are from a sample project and a test drawing, with invented names.',
+ b_t_s:'The program runs on your PC and uploads no drawings, projects or accounts anywhere.',
+ b_t1b:'Your drawings stay as they are', b_t1:'The program reads a copy inside the project folder and never changes your files.',
+ b_t3b:'Your own prices', b_t3:'Every project has its own price list, set for its location.',
+ b_s1:'Download the file and extract it to a folder. Keep the libs folder beside the program as it is.',
+ b_s2:'Run HT Build-Plan.exe. The program is not digitally signed, so Windows may warn you: choose More info, then Run anyway.',
+ b_s3:'Create an account and confirm your e-mail. Once your request is approved you get an e-mail with the licence period, activation completes and the program works offline. The licence lasts 6 months and is renewed free on request.',
+ b_legal:'AutoCAD and Revit are trademarks of Autodesk; ArchiCAD of Graphisoft; Tekla of Trimble; Primavera and P6 of Oracle. HT Build-Plan is an independent program, not connected with them.'
+}};
+
+/* on GitHub Pages the links build themselves from the address: <account>.github.io/<repo>/ */
+function repoPath() {
+  if (CONFIG.REPO) return CONFIG.REPO;
+  const m = location.hostname.match(/^([^.]+)\.github\.io$/), seg = location.pathname.split('/').filter(Boolean)[0];
+  return m && seg ? `${m[1]}/${seg}` : '';
+}
+/* the download buttons: the latest release of this repository */
+const BP_REPO = 'HTxeraudit/HT-Build-Plan';
+['bdl', 'bdl2'].forEach(id => document.getElementById(id).href = `https://github.com/${BP_REPO}/releases/latest/download/HT-Build-Plan.zip`);
+const legalKey = () => 'b_legal';
+
+function setLang(l) {
+  const t = T[l], root = document.documentElement;
+  root.lang = l; root.dir = l === 'ar' ? 'rtl' : 'ltr'; document.body.classList.toggle('en', l === 'en');
+  document.querySelectorAll('[data-t]').forEach(e => { e.textContent = t[e.dataset.t]; });
+  document.getElementById('legal').innerHTML = t[legalKey()];
+  document.querySelectorAll('[data-alt]').forEach(e => e.alt = t[e.dataset.alt]);
+  document.getElementById('lang').textContent = t.lang;
+  const c = document.getElementById('contact'); c.replaceChildren();
+  const add = (href, text) => { const a = document.createElement('a'); a.className = 'btn sec'; a.href = href; a.textContent = text; a.rel = 'noopener'; c.append(a); };
+  if (CONFIG.EMAIL) add(`mailto:${CONFIG.EMAIL}`, `${t.mail}: ${CONFIG.EMAIL}`);
+  try { localStorage.setItem('ht-lang', l); } catch (e) {}
+}
+let start = new URLSearchParams(location.search).get('lang');
+if (!T[start]) { try { start = localStorage.getItem('ht-lang'); } catch (e) {} }
+if (!T[start]) start = 'ar';
+setLang(start);
+document.getElementById('lang').onclick = () => setLang(document.documentElement.lang === 'ar' ? 'en' : 'ar');
+</script>
+</body>
+</html>
